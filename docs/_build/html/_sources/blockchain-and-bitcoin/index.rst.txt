@@ -8,3 +8,4 @@ Blockchain and Bitcoin
    what-is-the-difference-between-bitcoin-and-blockchain.rst
    what-is-bitcoin.rst
    how-bitcoin-works.rst
+   bitcoin-in-one-page.rst

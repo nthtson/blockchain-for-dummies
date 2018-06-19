@@ -16,6 +16,5 @@ Contents
    :maxdepth: 4
 
    blockchain-and-bitcoin/index.rst
-   frequently-asked-questions/index.rst
-   glossary/index.rst
-   how-to-connect-bitcoin/index.rst
+   frequently-asked-questions/faq.rst
+   glossary.rst
