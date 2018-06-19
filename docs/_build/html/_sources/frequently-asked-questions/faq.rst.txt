@@ -24,8 +24,7 @@ What is a consensus algorithm and why is it useful in blockchain?
 What is the difference between a public and private/consortium blockchains?
 --------------------------------------------------------------------------------
 
-If the bitcoin’s blockchain is on my computer,
-can I add 1 million of bitcoins in my wallet?
+If the BTC node is on my computer, can I add 1 million of bitcoins in my wallet?
 --------------------------------------------------------------------------------
 
 Why do I have to wait for confirmation?
