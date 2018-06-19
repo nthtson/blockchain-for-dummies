@@ -83,7 +83,22 @@
 <li class="toctree-l2"><a class="reference internal" href="what-is-a-blockchain.html">What is a blockchain?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="what-is-the-difference-between-bitcoin-and-blockchain.html">What is the difference between Bitcoin and Blockchain?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="what-is-bitcoin.html">What is Bitcoin?</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">How Bitcoin works?</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How Bitcoin works?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#transactions">Transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#independent-verification-of-transactions">Independent Verification of Transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aggregation-of-verified-transactions">Aggregation of Verified Transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constructing-a-block-header">Constructing a Block Header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mining-of-a-block">Mining of a Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finding-the-puzzle-why-is-it-hard">Finding the Puzzle- Why is it hard?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#difficulty-representation">Difficulty Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#successfully-mining-the-block">Successfully Mining the Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#independent-confirmation-of-each-block">Independent Confirmation of Each Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assembling-and-selecting-chains-of-blocks">Assembling and Selecting Chains of Blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#miners-reward">Miners Reward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#several-branches">Several Branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-if-someone-tries-to-hack-the-system">What if Someone tries to Hack the System?</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -154,6 +169,182 @@
             
   <div class="section" id="how-bitcoin-works">
 <h1>How Bitcoin works?<a class="headerlink" href="#how-bitcoin-works" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="transactions">
+<h2>Transactions<a class="headerlink" href="#transactions" title="Permalink to this headline">¶</a></h2>
+<p>Let’s try to understand how blockchain works with a simple transaction over a Blockchain network.</p>
+<a class="reference internal image-reference" href="../_images/Money-send-how-blockchain-works-edureka-768x382.png"><img alt="../_images/Money-send-how-blockchain-works-edureka-768x382.png" class="align-center" src="../_images/Money-send-how-blockchain-works-edureka-768x382.png" style="width: 384.0px; height: 197.0px;" /></a>
+<p>Suppose James wants to send <strong>5 BTC</strong> to his friend Kevin. Now, this transaction is broadcasted in the form of a <strong>digital message</strong>.</p>
+<a class="reference internal image-reference" href="../_images/digital-sign-how-blockchain-works-edureka.png"><img alt="../_images/digital-sign-how-blockchain-works-edureka.png" class="align-center" src="../_images/digital-sign-how-blockchain-works-edureka.png" style="width: 528px; height: 85px;" /></a>
+<p>The digital message has a unique signature. Just like your signature provides the proof of ownership of the document, similarly, <strong>digital signature</strong> provides the proof that the transaction is genuine.
+Now this generated transaction is broadcasted to the network where it propagates <strong>peer to peer</strong>.</p>
+<a class="reference internal image-reference" href="../_images/txn-propagates-how-blockchain-works-edureka-768x369.png"><img alt="../_images/txn-propagates-how-blockchain-works-edureka-768x369.png" class="align-center" src="../_images/txn-propagates-how-blockchain-works-edureka-768x369.png" style="width: 460.8px; height: 221.4px;" /></a>
+<p>Suppose the above transaction is first received by <strong>node A</strong> in the network.</p>
+</div>
+<div class="section" id="independent-verification-of-transactions">
+<h2>Independent Verification of Transactions<a class="headerlink" href="#independent-verification-of-transactions" title="Permalink to this headline">¶</a></h2>
+<p>Before sending transactions to its neighbors, each bitcoin node that gets the transaction will initially verify the transaction.</p>
+<a class="reference internal image-reference" href="../_images/Independent-verification.png"><img alt="../_images/Independent-verification.png" class="align-center" src="../_images/Independent-verification.png" style="width: 563px; height: 292px;" /></a>
+<p>This guarantees only valid transactions are propagated across the system while invalid transactions are disposed of at the first node which receives them. Every node confirms each transaction against a long agenda of criteria.</p>
+</div>
+<div class="section" id="aggregation-of-verified-transactions">
+<h2>Aggregation of Verified Transactions<a class="headerlink" href="#aggregation-of-verified-transactions" title="Permalink to this headline">¶</a></h2>
+<p><em>Independent aggregation of those transactions into new blocks by mining nodes combined with exhibited calculation through a proof-of-work algorithm.</em></p>
+<a class="reference internal image-reference" href="../_images/transaction-aggregation-how-blockchain-works-edureka.png"><img alt="../_images/transaction-aggregation-how-blockchain-works-edureka.png" class="align-center" src="../_images/transaction-aggregation-how-blockchain-works-edureka.png" style="width: 498px; height: 357px;" /></a>
+<ul class="simple">
+<li>By autonomously confirming every transaction as it is received and before propagating it, each node fabricates a pool of valid (however unconfirmed) transactions known as the <strong>transaction pool, memory pool or mempool</strong></li>
+<li>Transaction reaches <strong>Mining nodes</strong> it collects, validates, and relays new transactions just like other nodes</li>
+<li>Unlike other nodes, miner node will then aggregate these transactions into a <strong>candidate block</strong></li>
+</ul>
+<p>Let’s understand this better with an example.
+<em>Let’s say Andy is a miner. (A mining node maintains a local copy of the blockchain, the list of all blocks created since the beginning of the bitcoin system in 2009)</em></p>
+<a class="reference internal image-reference" href="../_images/aggregation-of-txn-how-blockchain-works-edureka.png"><img alt="../_images/aggregation-of-txn-how-blockchain-works-edureka.png" class="align-center" src="../_images/aggregation-of-txn-how-blockchain-works-edureka.png" style="width: 833px; height: 459px;" /></a>
+<p>Now, after collecting all the transactions in a block, Andy needs to construct the block header. Now this step is important to understand how blockchain works</p>
+</div>
+<div class="section" id="constructing-a-block-header">
+<h2>Constructing a Block Header<a class="headerlink" href="#constructing-a-block-header" title="Permalink to this headline">¶</a></h2>
+<p>To construct the block header, the mining node needs to fill in six fields, as listed in the table:</p>
+<table border="1" class="colwidths-auto docutils align-center">
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Size</strong></th>
+<th class="head"><strong>Field</strong></th>
+<th class="head"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4 bytes</td>
+<td>Version</td>
+<td>To construct the block header, the mining node needs to fill in six fields, as listed</td>
+</tr>
+<tr class="row-odd"><td>32 bytes</td>
+<td>Previous Block Hash</td>
+<td>A reference to the hash of the previous (parent) block in the chain</td>
+</tr>
+<tr class="row-even"><td>32 bytes</td>
+<td>Merkle Root</td>
+<td>A hash of the root of the Merkle tree of this block’s transactions</td>
+</tr>
+<tr class="row-odd"><td>4 bytes</td>
+<td>Timestamp</td>
+<td>The approximate creation time of this block (seconds from Unix Epoch)</td>
+</tr>
+<tr class="row-even"><td>4 bytes</td>
+<td>Difficulty Target</td>
+<td>The proof-of-work algorithm difficulty target for this block</td>
+</tr>
+<tr class="row-odd"><td>4 bytes</td>
+<td>Nonce</td>
+<td>A counter used for the proof-of-work algorithm</td>
+</tr>
+</tbody>
+</table>
+<p>Once Andy’s node has all the fields filled in the block header, Andy started Mining the block.</p>
+</div>
+<div class="section" id="mining-of-a-block">
+<h2>Mining of a Block<a class="headerlink" href="#mining-of-a-block" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>With all the other fields filled, the block header is now complete and the process of mining can begin</li>
+<li>The goal is now to find a value for the <strong>nonce</strong> that results in a block header hash that is less than the difficulty target</li>
+<li>The mining node will need to test billions or trillions of nonce values before a nonce is found that satisfies the requirement</li>
+</ul>
+<p><strong>Now that a candidate block has been constructed by Andy’s node, it is time for Andy’s hardware mining rig to “mine” the block, to find a solution to the proof-of-work algorithm that makes the block valid.</strong></p>
+<p><strong>Proof of work</strong> is a piece of data which is difficult(costly, time-consuming) to produce but easy for others to verify and which satisfies certain requirements.</p>
+</div>
+<div class="section" id="finding-the-puzzle-why-is-it-hard">
+<h2>Finding the Puzzle- Why is it hard?<a class="headerlink" href="#finding-the-puzzle-why-is-it-hard" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The SHA-256 is a one-way function(hash) hence, <strong>brute force</strong> is the only way to a particular output value</li>
+<li>On an average, it takes many random guesses to find a solution and thus the challenge is tough</li>
+<li>It takes around 10 minutes on an average for someone to find the special key to the solution</li>
+</ul>
+<p><em>To keep the coin distribution predictable, puzzles becoming increasingly difficult to solve when more people work on them.</em></p>
+<p>Now, to validate the block according to the proof-of-work algorithm, Andy’s mining node has to reach the difficulty target.</p>
+<a class="reference internal image-reference" href="../_images/proof-of-work-how-blockchain-works-edureka.png"><img alt="../_images/proof-of-work-how-blockchain-works-edureka.png" class="align-center" src="../_images/proof-of-work-how-blockchain-works-edureka.png" style="width: 552px; height: 225px;" /></a>
+<p>Let’s see how the difficulty is represented.</p>
+</div>
+<div class="section" id="difficulty-representation">
+<h2>Difficulty Representation<a class="headerlink" href="#difficulty-representation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The block contains the difficulty target, in a notation called “difficulty bits” or just “bits“</li>
+<li>Let’s say a block has 0x1903a30c as the difficulty bits. This notation expresses the difficulty target as a coefficient/exponent format, with the first two hexadecimal digits for the exponent and the next six hex digits as the coefficient</li>
+</ul>
+<p><strong>The formula to calculate the difficulty target from this representation is:</strong></p>
+<a class="reference internal image-reference" href="../_images/difficultycoefficient-how-blockchain-works-edureka.png"><img alt="../_images/difficultycoefficient-how-blockchain-works-edureka.png" class="align-center" src="../_images/difficultycoefficient-how-blockchain-works-edureka.png" style="width: 300px; height: 34px;" /></a>
+<p>So, such is the difficulty coefficient that Andy’s mining node has worked really hard to reach the difficulty target. Let’s see what happens next.</p>
+</div>
+<div class="section" id="successfully-mining-the-block">
+<h2>Successfully Mining the Block<a class="headerlink" href="#successfully-mining-the-block" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Andy has several hardware mining rigs, each running the <em>SHA256*</em> algorithm in parallel at incredible speeds</li>
+<li>The mining node running on Andy’s desktop transmits the block header to his mining hardware, which starts testing trillions of nonces per second</li>
+<li>Almost 11 minutes after starting to mine block, one of the hardware mining machines finds a solution and sends it back to the mining node</li>
+<li>Immediately, Andy’s mining node transmits the block to all its peers</li>
+<li>They receive, validate, and then propagate the new block. As the block ripples out across the network</li>
+</ul>
+<p><em>Now that that block is propagated in the network, each full nodes independently verifies the block</em></p>
+</div>
+<div class="section" id="independent-confirmation-of-each-block">
+<h2>Independent Confirmation of Each Block<a class="headerlink" href="#independent-confirmation-of-each-block" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>In bitcoin’s consensus mechanism, each new block is validated independently by every node on the network</li>
+<li>This ensures that only valid blocks are propagated on the network</li>
+<li>Nodes validate the block by checking it against a long list of criteria that must all be met</li>
+</ul>
+</div>
+<div class="section" id="assembling-and-selecting-chains-of-blocks">
+<h2>Assembling and Selecting Chains of Blocks<a class="headerlink" href="#assembling-and-selecting-chains-of-blocks" title="Permalink to this headline">¶</a></h2>
+<p>Once a node has validated a new block, it will then attempt to assemble a chain by connecting the block to the existing blockchain</p>
+<a class="reference internal image-reference" href="../_images/assembling-block-how-blockchain-works-edureka.png"><img alt="../_images/assembling-block-how-blockchain-works-edureka.png" class="align-center" src="../_images/assembling-block-how-blockchain-works-edureka.png" style="width: 267px; height: 230px;" /></a>
+<p><em>In the network shown above, once the node (in orange) validates the block, it assembles the chain by connecting the block to the existing blockchain</em></p>
+<p>Once the block is verified by the network, it becomes the part of the blockchain and for successfully solving the block puzzle the miner is rewarded.</p>
+</div>
+<div class="section" id="miners-reward">
+<h2>Miners Reward<a class="headerlink" href="#miners-reward" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Since Miners use their valuable resources to validate the block, they are given <strong>a monetary award</strong></li>
+<li>In case of Bitcoin, they get some newly created Bitcoins as a reward</li>
+</ul>
+<a class="reference internal image-reference" href="../_images/reward-how-blockchain-works-edureka.png"><img alt="../_images/reward-how-blockchain-works-edureka.png" class="align-center" src="../_images/reward-how-blockchain-works-edureka.png" style="width: 768px; height: 214px;" /></a>
+<p><em>Now, the question arises, what happens in the case when more than one block gets solved at the same time?</em></p>
+<p>Yes, this is possible indeed! In such case, several branches exist.</p>
+</div>
+<div class="section" id="several-branches">
+<h2>Several Branches<a class="headerlink" href="#several-branches" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Although the problem is tough, however, there are chances that more than one block will be solved at the same time</li>
+<li><strong>Several branches</strong> in the blockchain are possible in such cases</li>
+<li>Everyone should simply build the blocks on top of the first block that they receive</li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Several-branches-how-blockchain-works-edureka.png"><img alt="../_images/Several-branches-how-blockchain-works-edureka.png" class="align-center" src="../_images/Several-branches-how-blockchain-works-edureka.png" style="width: 420px; height: 217px;" /></a>
+<ul class="simple">
+<li>Other Nodes may have received the blocks in a different order</li>
+<li>They will be building on the block they first receive</li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Several-branch-how-blockchain-works-edureka.png"><img alt="../_images/Several-branch-how-blockchain-works-edureka.png" class="align-center" src="../_images/Several-branch-how-blockchain-works-edureka.png" style="width: 833px; height: 310px;" /></a>
+<ul class="simple">
+<li>The tie gets broken when someone solves the next block because it is very rare for this situation to happen multiple times in a row</li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Several-branchess-how-blockchain-works-edureka.png"><img alt="../_images/Several-branchess-how-blockchain-works-edureka.png" class="align-center" src="../_images/Several-branchess-how-blockchain-works-edureka.png" style="width: 833px; height: 259px;" /></a>
+<ul class="simple">
+<li>Blockchain quickly stabilizes in this situation</li>
+<li>The general rule is to switch to the longest chain available</li>
+</ul>
+<a class="reference internal image-reference" href="../_images/longest-branches-how-blockchain-works-edureka.png"><img alt="../_images/longest-branches-how-blockchain-works-edureka.png" class="align-center" src="../_images/longest-branches-how-blockchain-works-edureka.png" style="width: 833px; height: 300px;" /></a>
+<p>The Blockchain quickly Stabilizes. Every node is in agreement with the current state of the ledger.</p>
+<a class="reference internal image-reference" href="../_images/longest-chain-how-blockchain-works-edureka.png"><img alt="../_images/longest-chain-how-blockchain-works-edureka.png" class="align-center" src="../_images/longest-chain-how-blockchain-works-edureka.png" style="width: 606px; height: 274px;" /></a>
+<p>Alright, so consensus rules save the blockchain network from such ambiguity.</p>
+<p>Now, another question arises here, what if someone tries to alter any transaction or records in the system?</p>
+</div>
+<div class="section" id="what-if-someone-tries-to-hack-the-system">
+<h2>What if Someone tries to Hack the System?<a class="headerlink" href="#what-if-someone-tries-to-hack-the-system" title="Permalink to this headline">¶</a></h2>
+<p>Once a block is solved the cryptographic hash output becomes the identifier of that block.</p>
+<a class="reference internal image-reference" href="../_images/hack-with-system-how-blockchain-works-edureka.png"><img alt="../_images/hack-with-system-how-blockchain-works-edureka.png" class="align-center" src="../_images/hack-with-system-how-blockchain-works-edureka.png" style="width: 601px; height: 292px;" /></a>
+<p>Since Blockchain is a back-linked distributed database of records. When a block is formed, the cryptographic hash output becomes the identifier of that block, which ties into the next block, creating a chain of blocks.</p>
+<a class="reference internal image-reference" href="../_images/previoushash-hoe-blockchain-works-edureka.png"><img alt="../_images/previoushash-hoe-blockchain-works-edureka.png" class="align-center" src="../_images/previoushash-hoe-blockchain-works-edureka.png" style="width: 638px; height: 270px;" /></a>
+<p>Hence, the blockchain is secured by the strong cryptographic algorithm and there is no way to alter any record.</p>
+<p><em>If someone tries to alter any transaction in any of the blocks, the hash of the block changes and consequently hash of all the previous blocks will change. The nodes will not arrive at **the consensus and hence, the fraud can easily be detected**</em></p>
+<a class="reference internal image-reference" href="../_images/nutshell-how-blockchain-works-edureka.png"><img alt="../_images/nutshell-how-blockchain-works-edureka.png" class="align-center" src="../_images/nutshell-how-blockchain-works-edureka.png" style="width: 760px; height: 290px;" /></a>
+<p>Source: <a class="reference external" href="https://www.edureka.co/blog/how-blockchain-works/">https://www.edureka.co/blog/how-blockchain-works/</a></p>
+</div>
 </div>
 
 
