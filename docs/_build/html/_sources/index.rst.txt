@@ -6,6 +6,9 @@
 Blockchain for Dummies
 ===============================================================================
 
+..  image:: ./img/blockchain.jpg
+    :align: center
+
 The goal of this documentation is to introduce you to blockchain technology. The content of the
 document is copied and collected on internet. It's just for study purpose.
 
